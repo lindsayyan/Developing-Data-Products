@@ -1,0 +1,33 @@
+---
+title: "Week 2 Assignment"
+author: "Lindsay Yan"
+date: "May 8, 2017"
+output: html_document
+---
+
+
+
+## Demonstration of R Markdown and Leaflet
+
+I have 3 places marked on the map, if you click on the points it can lead you to the website of the point of interest.
+
+```{r }
+library(leaflet)
+
+CN_Tower <- c("<a href= 'http://www.cntower.ca/intro.html' >CN Tower</a>")
+Empire_State <- c("<a href= 'http://www.esbnyc.com/' >Empire State</a>")
+Hollywood<- c("<a href= 'http://hollywoodsign.org/' >Holly Wood</a>")
+
+mapp <- leaflet() %>%
+  addTiles() %>%  
+  addMarkers(lat=43.6426, lng=-79.3871, popup=CN_Tower)%>%
+  addMarkers(lat=40.7484, lng= -73.9856, popup=Empire_State)%>%
+  addMarkers(lat=34.1340, lng=-118.3215, popup=Hollywood)%>% 
+  
+  setView (lat=40.7484, lng= -73.9856, zoom=16)
+
+mapp 
+
+```
+
+
